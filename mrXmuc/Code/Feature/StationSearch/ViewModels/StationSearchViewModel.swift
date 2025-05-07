@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class StationSearchViewModel: ObservableObject {
     @Published var fetching = false
     @Published var stations: [StationModel] = [];

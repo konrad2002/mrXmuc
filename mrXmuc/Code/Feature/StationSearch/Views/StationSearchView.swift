@@ -16,7 +16,9 @@ struct StationSearchView: View {
             List {
                 ForEach(viewModel.stations, id: \.self) { station in
                 
-                    Text(station.name)
+                    NavigationLink (station.name) {
+                        DeparturesView(station: station)
+                    }
                     
                 }
             }
@@ -30,6 +32,7 @@ struct StationSearchView: View {
         .task(id: viewModel.query) {
             await viewModel.fetchStations()
         }
+        .navigationTitle("Abfahrten")
     }
 }
 

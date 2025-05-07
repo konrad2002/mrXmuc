@@ -84,6 +84,8 @@ struct ApiActions {
             return try decoder.decode(T.self, from: data)
         } catch let jsonError as NSError {
             print("JSON decode failed: \(jsonError.localizedDescription)")
+            print(jsonError.domain)
+            print(jsonError.userInfo)
             throw ServiceError.invalidJSON
         }
     }
